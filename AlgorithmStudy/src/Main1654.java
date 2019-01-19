@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /*
- * 		Baekjoon Online Judge 1654¹ø - ·£¼± ÀÚ¸£±â 
+ * 		Baekjoon Online Judge 1654ë²ˆ - ëœì„  ìë¥´ê¸° 
  * 
  * 		https://www.acmicpc.net/problem/2580
  */
@@ -24,26 +24,26 @@ public class Main1654 {
 			data[i] = Integer.parseInt(br.readLine());
 			if (data[i] > up)
 				up = data[i];
-		} // µ¥ÀÌÅÍ ÃÊ±âÈ­ÇÏ¸é¼­ °¡Àå Å« °ªÀ» up¿¡  ÀúÀå
+		} // ë°ì´í„° ì´ˆê¸°í™”í•˜ë©´ì„œ ê°€ì¥ í° ê°’ì„ upì— ì €ì¥
 
 		while (up >= down) {
-			long mid = (up + down) / 2; 
+			long mid = (up + down) / 2;
 			long count = 0;
 
 			for (int i = 0; i < K; i++) {
 				count += data[i] / mid;
-			} // mid ±æÀÌ ¸¸Å­ Àß¶ó³½ °¹¼ö 
+			} // mid ê¸¸ì´ ë§Œí¼ ì˜ë¼ë‚¸ ê°¯ìˆ˜
 
-			if (count >= N) { // Àß¶ó³½ °¹¼ö°¡ Nº¸´Ù Å©°Å³ª °°Àº °æ¿ì downÀ» Áõ°¡ ½ÃÅ´
+			if (count >= N) { // ì˜ë¼ë‚¸ ê°¯ìˆ˜ê°€ Në³´ë‹¤ ì‘ì€ ê²½ìš° upì„ ê°ì†Œ ì‹œí‚´
 				down = mid + 1;
 				if (mid > max)
-					max = mid; 
-			} else { // Àß¶ó³½ °¹¼ö°¡ Nº¸´Ù ÀÛÀº °æ¿ì upÀ» °¨¼Ò ½ÃÅ´ 
+					max = mid;
+			} else { // ì´ì§„ íƒìƒ‰ ì‹œí–‰
 				up = mid - 1;
-				
+
 			}
 
-		} // ÀÌÁø Å½»ö ½ÃÇà 
+		} // ì´ì§„ íƒìƒ‰ ì‹œí–‰
 
 		System.out.println(max);
 	}

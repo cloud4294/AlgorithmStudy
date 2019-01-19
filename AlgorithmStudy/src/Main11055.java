@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /*
- * 		Baekjoon Online Judge 11055¹ø - °¡Àå Å« Áõ°¡ ºÎºĞ ¼ö¿­
+ * 		Baekjoon Online Judge 11055ë²ˆ - ê°€ì¥ í° ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´
  * 
  * 		https://www.acmicpc.net/problem/11055
  */
@@ -21,7 +21,7 @@ public class Main11055 {
 		for (int i = 0; i < N; i++) {
 			data[i] = Integer.parseInt(st.nextToken());
 			dp[i] = data[i];
-		}// µ¥ÀÌÅÍ ÃÊ±âÈ­ 
+		}// ë°ì´í„° ì´ˆê¸°í™” 
 		
 		int max = data[0];
 		for (int i = 0; i < N; i++) {
@@ -31,7 +31,7 @@ public class Main11055 {
 			}
 			if (dp[i] > max)
 				max = dp[i];
-		} // i¹øÂ° ¼öÀÇ °¡Àå Å« Áõ°¡ ºÎºĞ ¼ö¿­ÀÇ °ªÀ» dp[i]¿¡ ÀúÀå 
+		} // ië²ˆì§¸ ìˆ˜ì˜ ê°€ì¥ í° ì¦ê°€ ë¶€ë¶„ ìˆ˜ì—´ì˜ ê°’ì„ dp[i]ì— ì €ì¥ 
 
 		System.out.println(max);
 

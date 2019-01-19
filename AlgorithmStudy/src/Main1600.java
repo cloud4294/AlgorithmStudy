@@ -3,7 +3,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 /*
- * 		Baekjoon Online Judge 1600¹ø - ¸»ÀÌ µÇ°íÇÂ ¿ø¼şÀÌ
+ * 		Baekjoon Online Judge 1600ë²ˆ - ë§ì´ ë˜ê³ í”ˆ ì›ìˆ­ì´
  * 
  * 		https://www.acmicpc.net/problem/1600
  */
@@ -53,7 +53,7 @@ public class Main1600 {
 			point now = queue.poll();
 			if (now.y == h && now.x == w) {
 				return now.length;
-			} // ¸ñÀûÁö¿¡ µµ´ŞÇß´Ù¸é ÇöÀç±îÁöÀÇ ±æÀÌ¸¦ ¸®ÅÏ 
+			} // ëª©ì ì§€ì— ë„ë‹¬í–ˆë‹¤ë©´ í˜„ì¬ê¹Œì§€ì˜ ê¸¸ì´ë¥¼ ë¦¬í„´
 
 			for (int i = 0; i < 4; i++) {
 				int ny = now.y + my[i];
@@ -65,7 +65,7 @@ public class Main1600 {
 
 					queue.offer(new point(ny, nx, now.length + 1, now.count));
 				}
-			} // 4¹æÇâ¿¡ ´ëÇÑ BFS ½ÃÇà 
+			} // 4ë°©í–¥ì— ëŒ€í•œ BFS ì‹œí–‰
 
 			if (now.count < k) {
 				for (int j = 0; j < 8; j++) {
@@ -76,10 +76,11 @@ public class Main1600 {
 						queue.offer(new point(ny, nx, now.length + 1, now.count + 1));
 					}
 				}
-			} // ¸»À» ÀÌ¿ëÇÑ 8¹æÇâ¿¡ ´ëÇØ BFS ½ÃÇà 
+			} // ë§ì„ ì´ìš©í•œ 8ë°©í–¥ì— ëŒ€í•´ BFS ì‹œí–‰
+
 		}
 
-		return -1; // Å¥°¡ ºñ¾îÀÖÀ»¶§±îÁö Á¾·á µÇÁö ¾Ê¾Ò´Ù¸é -1 ¸®ÅÏ 
+		return -1; // íê°€ ë¹„ì–´ìˆì„ë•Œê¹Œì§€ ì¢…ë£Œ ë˜ì§€ ì•Šì•˜ë‹¤ë©´ -1 ë¦¬í„´
 	}
 
 	public static void main(String[] args) {
@@ -90,14 +91,14 @@ public class Main1600 {
 		w = sc.nextInt();
 		h = sc.nextInt();
 
-		map = new int[h+1][w+1];
-		checked = new boolean[h+1][w+1][k+1]; // ÁÂÇ¥ ¹æ¹®, ¸»»ç¿ë È½¼ö¸¦ Ã¼Å© 
+		map = new int[h + 1][w + 1];
+		checked = new boolean[h + 1][w + 1][k + 1]; // ì¢Œí‘œ ë°©ë¬¸, ë§ì‚¬ìš© íšŸìˆ˜ë¥¼ ì²´í¬
 
 		for (int i = 1; i <= h; i++) {
 			for (int j = 1; j <= w; j++) {
 				map[i][j] = sc.nextInt();
 			}
-		}// ÃÊ±â ÁöÇü Á¤º¸ ÃÊ±âÈ­ 
+		} // ì´ˆê¸° ì§€í˜• ì •ë³´ ì´ˆê¸°í™”
 
 		System.out.println(BFS());
 

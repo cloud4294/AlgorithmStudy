@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /*
- * 		Baekjoon Online Judge 2580¹ø - ½ºµµÄí
+ * 		Baekjoon Online Judge 2580 - ìŠ¤ë„ì¿ 
  * 
  * 		https://www.acmicpc.net/problem/2580
  * 
@@ -28,35 +28,36 @@ public class Main2580 {
 
 	public static void solve(int[][] map, int length) {
 
-		if(flag == false) { // ½ºµµÄí°¡ ¿Ï¼º µÇÁö ¾Ê¾Ò´Ù¸é 
+		if(flag == false) { // ìŠ¤ë„ì¿ ê°€ ì™„ì„± ë˜ì§€ ì•Šì•˜ë‹¤ë©´ 
 			
-			if (length == list.size()) { // ½ºµµÄíÀÇ ºóÄ­À» Ã¤¿î °¹¼ö°¡ ¸®½ºÆ®ÀÇ °¹¼ö¿Í °°´Ù¸é ÀüÃ¼ Ãâ·Â 
+			if (length == list.size()) { //  ìŠ¤ë„ì¿ ì˜ ë¹ˆì¹¸ì„ ì±„ìš´ ê°¯ìˆ˜ê°€ ë¦¬ìŠ¤íŠ¸ì˜ ê°¯ìˆ˜ì™€ ê°™ë‹¤ë©´ ì „ì²´ ì¶œë ¥ 
 				for (int i = 0; i < 9; i++) {
 					for (int j = 0; j < 9; j++) {
 						System.out.print(map[i][j] +" ");
 					}
 					System.out.println();
 				}
-				flag = true; // ½ºµµÄí ¿Ï¼º
+				flag = true; // ìŠ¤ë„ì¿  ì™„ì„±
 				return;
 			} else {
-				point now = list.get(length); // ÇöÀç À§Ä¡ 
+				point now = list.get(length); //í˜„ì¬ ìœ„ì¹˜ 
+
 				int[] check = new int[10];
 				int y = now.y;
 				int x = now.x;
-				int bx = 0;  // 3*3 ºí·°À¸·Î³ª´©¾úÀ»¶§ ºí·°ÀÇ ÁÂ¼º´Ü ÁÂÇ¥ 
+				int bx = 0;  // 3*3 ë¸”ëŸ­ìœ¼ë¡œë‚˜ëˆ„ì—ˆì„ë•Œ ë¸”ëŸ­ì˜ ì¢Œì„±ë‹¨ ì¢Œí‘œ 
 				int by = 0;
 				
 				for (int i = 0; i < 9; i++) {
 					if (check[map[y][i]] == 0) {
 						check[map[y][i]]++;
 					}
-				} // °¡·ÎÁÙ Ã¼Å© 
+				} // ê°€ë¡œì¤„ ì²´í¬ 
 				for (int i = 0; i < 9; i++) {
 					if (check[map[i][x]] == 0) {
 						check[map[i][x]]++;
 					}
-				} // ¼¼·ÎÁÙ Ã¼Å© 
+				} // ì„¸ë¡œì¤„ ì²´í¬ 
 				if (y >= 6)
 					by = 6;
 				else if (y >= 3)
@@ -66,7 +67,7 @@ public class Main2580 {
 					bx = 6;
 				else if (x >= 3)
 					bx = 3;
-				// ºí·° ÁÂ»ó´Ü À§Ä¡ È®ÀÎ 
+				//ë¸”ëŸ­ ì¢Œìƒë‹¨ ìœ„ì¹˜ í™•ì¸ 
 				
 				for (int i = by; i < by + 3; i++) {
 					for (int j = bx; j < bx + 3; j++) {
@@ -74,7 +75,7 @@ public class Main2580 {
 							check[map[i][j]]++;
 						}
 					}
-				} // ºí·° Ã¼Å© 
+				} //ë¸”ëŸ­ ì²´í¬ 	
 				for (int i = 1; i <= 9; i++) {
 					if (check[i] == 0) {
 						int[][] nextmap = new int[9][9];
@@ -86,7 +87,7 @@ public class Main2580 {
 							solve(nextmap, length + 1) ;
 						
 					}
-				} // 1 ºÎÅÍ 9±îÁö Ã¼Å©µÇÁö ¾ÊÀº ¼ö¸¦ ¹è¿­¿¡ Ã¤¿îµÚ ´ÙÀ½ À§Ä¡¸¦ Ã¤¿ì±âÀ§ÇÑ Àç±Í È£Ãâ ½ÃÇà
+				} //1 ë¶€í„° 9ê¹Œì§€ ì²´í¬ë˜ì§€ ì•Šì€ ìˆ˜ë¥¼ ë°°ì—´ì— ì±„ìš´ë’¤ ë‹¤ìŒ ìœ„ì¹˜ë¥¼ ì±„ìš°ê¸°ìœ„í•œ ì¬ê·€ í˜¸ì¶œ ì‹œí–‰
 				
 			}
 		}
@@ -107,7 +108,7 @@ public class Main2580 {
 					list.add(new point(i, j));
 				}
 			}
-		} // ½ºµµÄí Á¤º¸¸¦ ÃÊ±âÈ­ÇÏ¸ç 0ÀÎ ºÎºĞÀÇ À§Ä¡¸¦ ¸®½ºÆ®¿¡ ³ÖÀ½ 
+		} // ìŠ¤ë„ì¿  ì •ë³´ë¥¼ ì´ˆê¸°í™”í•˜ë©° 0ì¸ ë¶€ë¶„ì˜ ìœ„ì¹˜ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ë„£ìŒ 
 		solve(map, 0);
 
 	}
