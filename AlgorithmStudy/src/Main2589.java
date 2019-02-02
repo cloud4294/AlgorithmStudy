@@ -24,7 +24,7 @@ public class Main2589 {
 			this.x = x;
 			this.length = length;
 		}
-	}
+	} // 좌표와 길이를 저장할 클래스 
 
 	public static void bfs(int i, int j) {
 		checked = new boolean[N + 2][M + 2];
@@ -34,7 +34,7 @@ public class Main2589 {
 		queue.offer(start);
 		int l = 0;
 
-		while (!queue.isEmpty()) {
+		while (!queue.isEmpty()) { // bfs시행
 			dot now = queue.poll();
 
 			if (now.length >= l) {
@@ -55,11 +55,11 @@ public class Main2589 {
 			}
 		}
 
-		if (l > res) {
+		if (l > res) { // bfs종료시 길이가 현재 길이보다 길다면 갱신
 			res = l;
 		}
 
-	}
+	} 
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -76,14 +76,14 @@ public class Main2589 {
 			for (int j = 1; j <= M; j++) {
 				map[i][j] = line.charAt(j - 1);
 			}
-		}
+		} // 입력값 초기화
 
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= M; j++) {
 				if (map[i][j] == 'L')
 					bfs(i, j);
 			}
-		}
+		} // L값을 가진 모든 지점에 대해 bfs시행
 		System.out.println(res);
 
 	}
