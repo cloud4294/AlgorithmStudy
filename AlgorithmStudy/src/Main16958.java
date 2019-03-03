@@ -60,16 +60,8 @@ public class Main16958 {
 					d2 = Math.min(d2, shortcut);
 				}
 			} // 시작점과 도착점에서 가장 가까운 텔레포트지점과의 거리를 구함 
-
-			if (tp[src] == true) { // 시작 지점에 텔레포트가 가능할 경우
-				dist = Math.min(dist, T + d2);
-			} else if (tp[dst] == true) { // 도착 지점이 텔레포트가 가능할 경우
-				dist = Math.min(dist, T + d1);
-			} else if (tp[src] == true && tp[dst] == true) { // 시작 지점, 도착 지점 모두 텔레포트가 가능할 경우
-				dist = Math.min(dist, T);
-			} else { // 시작 지점 , 도착지점 모두 텔레포트가 불가능할 경우 
-				dist = Math.min(dist, T + d1 + d2);
-			}
+			
+			dist = Math.min(dist, T + d1 + d2);
 
 			System.out.println(dist);
 		}
